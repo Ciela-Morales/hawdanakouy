@@ -362,168 +362,41 @@
             }
         }
 
-        /* Responsive */
+        /* ── MOBILE FIRST: everything fits, no scroll ── */
         @media (max-width: 600px) {
-            body {
-                padding: 10px;
-                align-items: center;
-            }
+            body { padding: 8px; align-items: center; }
 
-            .intro-text {
-                font-size: 2.2rem;
-                margin-bottom: 20px;
-                padding: 8px 16px;
-            }
-            
-            .intro-subtext {
-                font-size: 1rem;
-                margin-bottom: 25px;
-            }
-            
-            .next-btn {
-                padding: 14px 36px;
-                font-size: 1rem;
-                min-height: 48px;
-            }
+            .intro-text { font-size: 2rem; margin-bottom: 16px; padding: 8px 14px; }
+            .intro-subtext { font-size: 0.9rem; margin-bottom: 18px; }
+            .next-btn { padding: 12px 30px; font-size: 0.95rem; min-height: 42px; }
 
-            h1 {
-                font-size: 1.6rem;
-            }
+            h1 { font-size: 1.15rem; margin-bottom: 6px; }
+            .card { padding: 8px 10px; }
+            .message { font-size: 0.76rem; line-height: 1.35; margin-bottom: 6px; }
+            .message br { display: none; }
+            .message p { margin-bottom: 3px; }
 
-            .card {
-                padding: 20px 15px;
-            }
+            button { padding: 7px 6px; font-size: 0.7rem; min-height: 32px; }
+            .surprise-message { font-size: 0.78rem; padding: 8px; margin-top: 6px; min-height: 32px; }
 
-            .message {
-                font-size: 0.88rem;
-                line-height: 1.5;
-                margin-bottom: 15px;
-            }
+            .button-container { gap: 5px; margin-top: 6px; }
+            .floating-element { font-size: 0.9rem; }
+            .bouquet, .bouquet-left { font-size: 2.5rem; }
+            .intro-page { min-height: unset; padding: 16px 0; }
+            .clickable-heart, .clickable-flower { transform: scale(0.7); }
 
-            .message br {
-                display: none;
-            }
-
-            .message p {
-                margin-bottom: 6px;
-            }
-
-            button {
-                padding: 12px 18px;
-                font-size: 0.88rem;
-                min-height: 44px;
-            }
-
-            .surprise-message {
-                font-size: 0.9rem;
-                padding: 12px;
-                margin-top: 12px;
-            }
-
-            .floating-element {
-                font-size: 1.1rem;
-            }
-
-            .bouquet, .bouquet-left {
-                font-size: 3.5rem;
-            }
-
-            .intro-page {
-                min-height: unset;
-                padding: 20px 0;
-            }
-
-            .clickable-heart,
-            .clickable-flower {
-                transform: scale(0.8);
-            }
-
-            .games-container {
-                padding: 20px 15px;
-                max-height: 95vh;
-                width: 95%;
-            }
-
-            .game-title {
-                font-size: 1.4rem;
-                margin-bottom: 12px;
-            }
-
-            .game-score {
-                font-size: 1.1rem;
-                margin-bottom: 10px;
-            }
-
-            .game-btn {
-                padding: 10px 16px;
-                font-size: 0.9rem;
-                margin-top: 10px !important;
-            }
+            .games-container { padding: 14px 10px; max-height: 92vh; width: 96%; }
+            .game-title { font-size: 1.2rem; margin-bottom: 8px; }
+            .game-score { font-size: 0.95rem; margin-bottom: 8px; }
+            .game-btn { padding: 8px 12px; font-size: 0.8rem; margin-top: 8px !important; }
         }
 
         @media (max-width: 400px) {
-            .intro-text {
-                font-size: 2rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .card {
-                padding: 30px 20px;
-            }
-
-            .message {
-                font-size: 0.9rem;
-            }
-
-            button {
-                font-size: 0.9rem;
-                padding: 12px 18px;
-            }
-        }
-
-        /* Landscape mode support */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .intro-text {
-                font-size: 2rem;
-                margin-bottom: 15px;
-            }
-
-            .intro-subtext {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-
-            .next-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-                margin-bottom: 10px;
-            }
-
-            .message {
-                font-size: 0.85rem;
-                line-height: 1.5;
-                margin-bottom: 15px;
-            }
-
-            .button-container {
-                gap: 8px;
-            }
-
-            button {
-                padding: 10px 16px;
-                font-size: 0.85rem;
-            }
-
-            .bouquet, .bouquet-left {
-                font-size: 3rem;
-            }
+            .intro-text { font-size: 1.7rem; }
+            h1 { font-size: 1rem; }
+            .card { padding: 6px 8px; }
+            .message { font-size: 0.72rem; }
+            button { font-size: 0.68rem; padding: 6px 5px; min-height: 30px; }
         }
 
         /* Accessibility */
@@ -3188,11 +3061,11 @@
             btn.textContent = '⏳ Capturing...';
             btn.disabled = true;
 
-            // Hide chrome that shouldn't appear in screenshot (but NOT .signature)
+            // Hide UI chrome (keep .signature hidden too — we draw it manually)
             const hideSelectors = ['#musicToggleBtn', '.back-btn', '#shareBtn',
                 '.floating-element', '.falling-heart', '.falling-chocolate',
                 '.bg-sparkle', '.twinkle-star', '.shooting-star',
-                '.bouquet', '.bouquet-left'];
+                '.bouquet', '.bouquet-left', '.signature'];
             const hidden = [];
             hideSelectors.forEach(sel => document.querySelectorAll(sel).forEach(el => {
                 hidden.push({ el, v: el.style.visibility });
@@ -3202,71 +3075,77 @@
             try {
                 const card = document.getElementById('page4');
                 const raw = await html2canvas(card, {
-                    backgroundColor: null, scale: 2, useCORS: true, logging: false
+                    backgroundColor: null, scale: 2,
+                    useCORS: true, allowTaint: true, logging: false,
+                    ignoreElements: el => el.id === 'shareBtn'
                 });
 
-                // Build final canvas with gradient background
+                // Build final canvas with gradient + signature
+                const pad = 36;
                 const final = document.createElement('canvas');
-                const pad = 40;
                 final.width  = raw.width  + pad * 2;
-                final.height = raw.height + pad * 2 + 60; // extra space for signature
+                final.height = raw.height + pad * 2 + 56;
                 const ctx = final.getContext('2d');
 
-                // Pink gradient background
                 const grad = ctx.createLinearGradient(0, 0, final.width, final.height);
                 grad.addColorStop(0, '#ffeef8');
                 grad.addColorStop(0.5, '#ffe0f0');
                 grad.addColorStop(1, '#ffd4e5');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, final.width, final.height);
-
-                // Draw card content
                 ctx.drawImage(raw, pad, pad);
 
-                // Draw signature at bottom right
-                ctx.font = 'italic 600 28px Quicksand, sans-serif';
+                // Signature
+                ctx.font = 'italic bold 26px sans-serif';
                 ctx.fillStyle = '#ff69b4';
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'bottom';
-                ctx.shadowColor = 'rgba(255,255,255,0.8)';
-                ctx.shadowBlur = 6;
-                ctx.fillText('- Sila Mi More A Less 💖', final.width - pad, final.height - 16);
+                ctx.shadowColor = 'rgba(255,255,255,0.9)';
+                ctx.shadowBlur = 8;
+                ctx.fillText('- Sila Mi More A Less 💖', final.width - pad, final.height - 14);
                 ctx.shadowBlur = 0;
 
+                // ── Use dataURL directly — most reliable on mobile ──
                 const dataUrl = final.toDataURL('image/png');
                 document.getElementById('sharePreviewImg').src = dataUrl;
 
-                final.toBlob(async (blob) => {
+                // Try native share (mobile share sheet)
+                const nativeBtn = document.getElementById('nativeShareBtn');
+                nativeBtn.style.display = 'none';
+                try {
+                    const res = await fetch(dataUrl);
+                    const blob = await res.blob();
                     const file = new File([blob], 'valentines-card.png', { type: 'image/png' });
-                    const shareModal = document.getElementById('shareModal');
-                    const nativeBtn = document.getElementById('nativeShareBtn');
-
                     if (navigator.canShare && navigator.canShare({ files: [file] })) {
                         nativeBtn.style.display = 'inline-flex';
                         nativeBtn.onclick = async () => {
                             try { await navigator.share({ files: [file], title: "Happy Valentine's Day! 💖" }); }
-                            catch(e) { if (e.name !== 'AbortError') fallbackDownload(dataUrl); }
+                            catch(e) { /* user cancelled, ignore */ }
                         };
                     }
-                    document.getElementById('downloadBtn').onclick = () => fallbackDownload(dataUrl);
-                    shareModal.style.display = 'flex';
-                }, 'image/png');
+                } catch(_) {}
+
+                // Download button always works via dataURL
+                document.getElementById('downloadBtn').onclick = () => {
+                    const a = document.createElement('a');
+                    a.href = dataUrl;
+                    a.download = 'valentines-card.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                };
+
+                document.getElementById('shareModal').style.display = 'flex';
 
             } catch(err) {
-                console.error(err);
-                showPopup('Oops! Try again 😅');
+                console.error('Share error:', err);
+                showPopup('Oops! Screenshot failed 😅');
             } finally {
                 hidden.forEach(({ el, v }) => el.style.visibility = v);
                 btn.textContent = '📸 Save / Share';
                 btn.disabled = false;
             }
         });
-
-        function fallbackDownload(dataUrl) {
-            const a = document.createElement('a');
-            a.download = 'valentines-card.png';
-            a.href = dataUrl; a.click();
-        }
 
     </script>
 </body>
