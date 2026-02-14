@@ -31,10 +31,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            /* Never exceed the available viewport space */
             max-height: 100%;
-            overflow: hidden;
         }
 
         @keyframes fadeInPage {
@@ -48,19 +45,18 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            padding: 0 16px;
-            box-sizing: border-box;
-            gap: min(5vh, 36px);
+            gap: min(5vh, 30px);
+            padding: 0 12px;
             position: relative;
             z-index: 20;
+            width: 100%;
         }
 
         .intro-text {
             font-family: 'Pacifico', cursive;
-            font-size: clamp(1.4rem, 6.5vw, 3rem);
+            font-size: clamp(1.5rem, 7vw, 3rem);
             color: #ff69b4;
-            margin: 0;
+            margin-bottom: 0;
             text-shadow: 0 4px 8px rgba(255, 255, 255, 0.9), 3px 3px 6px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255,255,255,0.95);
             animation: textBounce 1s ease;
             position: relative;
@@ -68,8 +64,6 @@
             background: rgba(255,255,255,0.35);
             padding: 10px 20px;
             border-radius: 20px;
-            text-align: center;
-            word-break: break-word;
         }
 
         @keyframes textBounce {
@@ -80,10 +74,10 @@
 
         .intro-subtext {
             font-family: 'Quicksand', sans-serif;
-            font-size: clamp(0.9rem, 3.5vw, 1.4rem);
+            font-size: clamp(0.9rem, 3vw, 1.3rem);
             color: #ff69b4;
             font-style: italic;
-            margin: 0;
+            margin-bottom: 0;
             text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
             font-weight: 600;
             position: relative;
@@ -94,19 +88,17 @@
             background: linear-gradient(135deg, #ff69b4, #ff1493);
             color: white;
             border: none;
-            padding: 14px 40px;
+            padding: clamp(12px,2.5vh,18px) clamp(30px,8vw,50px);
             border-radius: 50px;
             font-family: 'Quicksand', sans-serif;
-            font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+            font-size: clamp(1rem,3.5vw,1.2rem);
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(255, 20, 147, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
             animation: buttonPulse 2s ease-in-out infinite;
             position: relative;
             z-index: 20;
-            white-space: nowrap;
-            flex-shrink: 0;
         }
 
         .back-btn {
@@ -157,81 +149,75 @@
             font-family: 'Quicksand', 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #ffd4e5 100%);
             position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            inset: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 16px;
-            box-sizing: border-box;
+            padding: 12px;
+            overflow: hidden;
         }
 
         .card {
             background: transparent;
             border-radius: 0;
-            padding: 8px 12px;
-            max-width: 600px;
+            padding: 6px 12px;
+            max-width: 480px;
             width: 100%;
             max-height: 100%;
+            overflow-y: auto;
             text-align: center;
             position: relative;
             z-index: 20;
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            overflow-y: auto;
-            box-sizing: border-box;
+            gap: 5px;
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
             color: #ff69b4;
-            font-size: clamp(1.1rem, 4vw, 1.7rem);
-            margin: 0;
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            margin-bottom: 0;
             font-weight: 400;
             text-shadow: 0 3px 6px rgba(255, 255, 255, 0.9), 2px 2px 4px rgba(255, 105, 180, 0.3);
-            flex-shrink: 0;
         }
 
         .message {
             color: #333;
-            font-size: clamp(0.72rem, 2.8vw, 0.88rem);
-            line-height: 1.35;
-            margin: 0;
+            font-size: clamp(0.7rem, 2.8vw, 0.82rem);
+            line-height: 1.3;
+            margin-bottom: 0;
             text-shadow: 0 2px 6px rgba(255, 255, 255, 0.95);
             font-weight: 600;
-            flex-shrink: 0;
         }
 
         .message br { display: none; }
-        .message p  { margin-bottom: 2px; }
+        .message p  { margin-bottom: 1px; }
 
         .button-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 5px;
             margin: 0;
-            max-width: 100%;
-            flex-shrink: 0;
+            width: 100%;
         }
 
         button {
-            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            background: linear-gradient(to bottom, #ff85c2, #ff1493);
             color: white;
             border: none;
-            padding: 7px 8px;
+            padding: 8px 10px;
             border-radius: 50px;
-            font-size: clamp(0.65rem, 2.5vw, 0.78rem);
+            font-size: clamp(0.65rem, 2.2vw, 0.78rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
+            box-shadow: 0 3px 8px rgba(255, 20, 147, 0.25);
             white-space: nowrap;
             min-height: unset;
             min-width: unset;
-            line-height: 1.2;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
         }
 
         button:hover {
@@ -244,16 +230,16 @@
         }
 
         .secondary-btn {
-            background: linear-gradient(135deg, #ffb6d9, #ff8fc7);
+            background: linear-gradient(to bottom, #ffcce5, #ff8fc7);
         }
 
         .surprise-message {
             margin: 0;
-            padding: 7px 10px;
+            padding: 6px 10px;
             background: linear-gradient(135deg, #fff0f8, #ffe6f2);
             border-radius: 12px;
             color: #ff1493;
-            font-size: clamp(0.72rem, 2.5vw, 0.85rem);
+            font-size: clamp(0.7rem, 2.5vw, 0.82rem);
             font-weight: 600;
             min-height: unset;
             display: flex;
@@ -263,7 +249,6 @@
             transform: scale(0.9);
             transition: all 0.4s ease;
             border: 2px solid #ffb6d9;
-            flex-shrink: 0;
         }
 
         .surprise-message.show {
@@ -389,21 +374,24 @@
         /* Responsive */
         @media (max-width: 600px) {
             body {
-                padding: 12px;
+                padding: 10px;
+                align-items: center;
             }
 
             .intro-text {
                 font-size: clamp(1.3rem, 6vw, 2rem);
-                padding: 8px 16px;
+                margin-bottom: 0;
+                padding: 8px 14px;
             }
-
-            .intro-page {
-                gap: min(4vh, 28px);
+            
+            .intro-subtext {
+                font-size: clamp(0.85rem, 2.8vw, 1rem);
+                margin-bottom: 0;
             }
-
+            
             .next-btn {
-                padding: 12px 32px;
-                font-size: clamp(0.9rem, 3.5vw, 1rem);
+                padding: clamp(10px,2vh,14px) clamp(24px,7vw,36px);
+                font-size: clamp(0.9rem, 3vw, 1rem);
             }
 
             h1 {
@@ -448,6 +436,11 @@
                 font-size: 3.5rem;
             }
 
+            .intro-page {
+                gap: min(4vh, 22px);
+                padding: 0 12px;
+            }
+
             .clickable-heart,
             .clickable-flower {
                 transform: scale(0.8);
@@ -478,76 +471,66 @@
 
         @media (max-width: 400px) {
             .intro-text {
-                font-size: clamp(1.1rem, 5.5vw, 1.5rem);
-            }
-
-            .intro-page {
-                gap: min(3.5vh, 22px);
-            }
-
-            .next-btn {
-                padding: 11px 28px;
+                font-size: 2rem;
             }
 
             h1 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             .card {
-                padding: 12px 10px;
+                padding: 30px 20px;
             }
 
             .message {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
 
             button {
-                font-size: 0.85rem;
-                padding: 10px 14px;
+                font-size: 0.9rem;
+                padding: 12px 18px;
             }
         }
 
         /* Landscape mode support */
         @media (max-height: 500px) and (orientation: landscape) {
             .intro-text {
-                font-size: clamp(1rem, 4vh, 1.5rem);
+                font-size: 2rem;
+                margin-bottom: 15px;
             }
 
             .intro-subtext {
-                font-size: clamp(0.75rem, 2.5vh, 1rem);
-            }
-
-            .intro-page {
-                gap: min(2vh, 12px);
+                font-size: 1rem;
+                margin-bottom: 20px;
             }
 
             .next-btn {
-                padding: 8px 22px;
-                font-size: 0.85rem;
+                padding: 12px 30px;
+                font-size: 1rem;
             }
 
             h1 {
-                font-size: 1.3rem;
-                margin-bottom: 6px;
+                font-size: 1.5rem;
+                margin-bottom: 10px;
             }
 
             .message {
-                font-size: 0.8rem;
-                line-height: 1.4;
-                margin-bottom: 8px;
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 15px;
             }
 
             .button-container {
-                gap: 6px;
+                gap: 8px;
             }
 
             button {
-                padding: 8px 12px;
-                font-size: 0.8rem;
+                padding: 10px 16px;
+                font-size: 0.85rem;
             }
 
             .bouquet, .bouquet-left {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
         }
 
@@ -1785,7 +1768,7 @@
     <div class="page active" id="page1">
         <div class="intro-page">
             <div class="intro-text">Hi ehehe 👋</div>
-            <div style="width: 100%; max-width: 320px;">
+            <div style="margin-bottom: 28px; width: 100%; max-width: 320px;">
                 <div style="font-family:'Quicksand',sans-serif; font-size:1rem; color:#ff69b4; font-weight:700; margin-bottom:10px; text-shadow:0 2px 6px rgba(255,255,255,0.9);">✍️ UNSAY PANGALAN NIMO UY? 🤨</div>
                 <input id="visitorName" type="text" placeholder="Type your name here..." maxlength="24"
                     style="width:100%; padding:14px 20px; border-radius:50px; border:2.5px solid #ff69b4;
@@ -1841,7 +1824,7 @@
         </div>
         
         <div id="surpriseMessage" class="surprise-message"></div>
-        <button id="shareBtn" class="secondary-btn" style="width:100%;max-width:320px;flex-shrink:0;">📸 Save / Share</button>
+        <button id="shareBtn" class="secondary-btn" style="width:100%;max-width:320px;">📸 Save / Share</button>
     </div>
     </div>
 
@@ -1929,20 +1912,16 @@
 
     <!-- Share preview modal -->
     <div id="shareModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-         background:rgba(0,0,0,0.75);z-index:5000;justify-content:center;align-items:center;padding:16px;box-sizing:border-box;">
-        <div style="background:linear-gradient(135deg,#fff0f8,#ffe6f2);border-radius:24px;padding:20px;
-             max-width:340px;width:100%;text-align:center;border:3px solid #ff69b4;
-             box-shadow:0 20px 60px rgba(255,105,180,0.5);max-height:90dvh;overflow-y:auto;box-sizing:border-box;">
-            <div style="font-family:'Pacifico',cursive;color:#ff1493;font-size:1.2rem;margin-bottom:10px;">Save your card! 💖</div>
-            <img id="sharePreviewImg" style="width:100%;border-radius:14px;border:2px solid #ffb6d9;margin-bottom:10px;display:block;" />
-            <p style="font-size:0.75rem;color:#ff69b4;font-family:'Quicksand',sans-serif;font-weight:600;margin-bottom:12px;">
-                📱 iOS: Tap Share → tap the image → long-press → Save to Photos
-            </p>
+         background:rgba(0,0,0,0.75);z-index:5000;justify-content:center;align-items:center;">
+        <div style="background:linear-gradient(135deg,#fff0f8,#ffe6f2);border-radius:24px;padding:24px;
+             max-width:340px;width:90%;text-align:center;border:3px solid #ff69b4;box-shadow:0 20px 60px rgba(255,105,180,0.5);">
+            <div style="font-family:'Pacifico',cursive;color:#ff1493;font-size:1.2rem;margin-bottom:12px;">Save your card! 💖</div>
+            <img id="sharePreviewImg" style="width:100%;border-radius:14px;border:2px solid #ffb6d9;margin-bottom:14px;" />
             <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-                <button class="game-btn" id="downloadBtn" style="min-height:44px;">⬇️ Save as PNG</button>
-                <button class="game-btn" id="nativeShareBtn" style="display:none;min-height:44px;">📤 Share</button>
+                <button class="game-btn" id="downloadBtn">⬇️ Save as PNG</button>
+                <button class="game-btn" id="nativeShareBtn" style="display:none;">📤 Share</button>
                 <button class="game-btn" onclick="document.getElementById('shareModal').style.display='none'"
-                    style="background:linear-gradient(135deg,#ffb6d9,#ff8fc7);min-height:44px;">✕ Close</button>
+                    style="background:linear-gradient(135deg,#ffb6d9,#ff8fc7);">✕ Close</button>
             </div>
         </div>
     </div>
@@ -3265,24 +3244,14 @@
                     const shareModal = document.getElementById('shareModal');
                     const nativeBtn = document.getElementById('nativeShareBtn');
 
-                    // Mobile share (Web Share API — works on iOS Safari & Android Chrome)
                     if (navigator.canShare && navigator.canShare({ files: [file] })) {
                         nativeBtn.style.display = 'inline-flex';
                         nativeBtn.onclick = async () => {
-                            try {
-                                await navigator.share({ files: [file], title: "Happy Valentine's Day! 💖" });
-                            } catch(e) {
-                                if (e.name !== 'AbortError') mobileDownload(blob, dataUrl);
-                            }
+                            try { await navigator.share({ files: [file], title: "Happy Valentine's Day! 💖" }); }
+                            catch(e) { if (e.name !== 'AbortError') fallbackDownload(dataUrl, blob); }
                         };
-                    } else {
-                        // Fallback: show Share button that triggers download
-                        nativeBtn.style.display = 'inline-flex';
-                        nativeBtn.textContent = '📤 Share';
-                        nativeBtn.onclick = () => mobileDownload(blob, dataUrl);
                     }
-
-                    document.getElementById('downloadBtn').onclick = () => mobileDownload(blob, dataUrl);
+                    document.getElementById('downloadBtn').onclick = () => fallbackDownload(dataUrl, blob);
                     shareModal.style.display = 'flex';
                 }, 'image/png');
 
@@ -3296,29 +3265,22 @@
             }
         });
 
-        function mobileDownload(blob, dataUrl) {
-            // Try Blob URL first (works on Android Chrome & most browsers)
+        function fallbackDownload(dataUrl, blob) {
             try {
-                const blobUrl = URL.createObjectURL(blob);
+                const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = 'valentines-card.png';
-                document.body.appendChild(a);
-                a.click();
+                a.href = url; a.download = 'valentines-card.png';
+                document.body.appendChild(a); a.click();
                 document.body.removeChild(a);
-                setTimeout(() => URL.revokeObjectURL(blobUrl), 3000);
+                setTimeout(() => URL.revokeObjectURL(url), 3000);
             } catch(e) {
-                // Final fallback: open image in new tab so user can long-press save on iOS
-                const w = window.open('', '_blank');
+                const w = window.open('','_blank');
                 if (w) {
-                    w.document.write('<html><body style="margin:0;background:#000;display:flex;justify-content:center;align-items:center;min-height:100vh;">'
-                        + '<img src="' + dataUrl + '" style="max-width:100%;touch-action:pinch-zoom;" />'
-                        + '<p style="position:fixed;top:10px;left:0;right:0;text-align:center;color:white;font-family:sans-serif;font-size:14px;">Long-press the image → Save to Photos 💖</p>'
+                    w.document.write('<html><body style="margin:0;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;">'
+                        + '<p style="color:white;font-family:sans-serif;font-size:13px;margin-bottom:12px;">Long-press image → Save to Photos 💖</p>'
+                        + '<img src="' + dataUrl + '" style="max-width:100%;"/>'
                         + '</body></html>');
                     w.document.close();
-                } else {
-                    // If popup blocked, replace page temporarily
-                    window.location.href = dataUrl;
                 }
             }
         }
