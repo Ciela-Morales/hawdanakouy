@@ -27,7 +27,10 @@
         }
 
         .page.active {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         @keyframes fadeInPage {
@@ -362,41 +365,168 @@
             }
         }
 
-        /* ── MOBILE FIRST: everything fits, no scroll ── */
+        /* Responsive */
         @media (max-width: 600px) {
-            body { padding: 8px; align-items: center; }
+            body {
+                padding: 10px;
+                align-items: center;
+            }
 
-            .intro-text { font-size: 2rem; margin-bottom: 16px; padding: 8px 14px; }
-            .intro-subtext { font-size: 0.9rem; margin-bottom: 18px; }
-            .next-btn { padding: 12px 30px; font-size: 0.95rem; min-height: 42px; }
+            .intro-text {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+                padding: 8px 16px;
+            }
+            
+            .intro-subtext {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+            
+            .next-btn {
+                padding: 14px 36px;
+                font-size: 1rem;
+                min-height: 48px;
+            }
 
-            h1 { font-size: 1.15rem; margin-bottom: 6px; }
-            .card { padding: 8px 10px; }
-            .message { font-size: 0.76rem; line-height: 1.35; margin-bottom: 6px; }
-            .message br { display: none; }
-            .message p { margin-bottom: 3px; }
+            h1 {
+                font-size: 1.6rem;
+            }
 
-            button { padding: 7px 6px; font-size: 0.7rem; min-height: 32px; }
-            .surprise-message { font-size: 0.78rem; padding: 8px; margin-top: 6px; min-height: 32px; }
+            .card {
+                padding: 20px 15px;
+            }
 
-            .button-container { gap: 5px; margin-top: 6px; }
-            .floating-element { font-size: 0.9rem; }
-            .bouquet, .bouquet-left { font-size: 2.5rem; }
-            .intro-page { min-height: unset; padding: 16px 0; }
-            .clickable-heart, .clickable-flower { transform: scale(0.7); }
+            .message {
+                font-size: 0.88rem;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
 
-            .games-container { padding: 14px 10px; max-height: 92vh; width: 96%; }
-            .game-title { font-size: 1.2rem; margin-bottom: 8px; }
-            .game-score { font-size: 0.95rem; margin-bottom: 8px; }
-            .game-btn { padding: 8px 12px; font-size: 0.8rem; margin-top: 8px !important; }
+            .message br {
+                display: none;
+            }
+
+            .message p {
+                margin-bottom: 6px;
+            }
+
+            button {
+                padding: 12px 18px;
+                font-size: 0.88rem;
+                min-height: 44px;
+            }
+
+            .surprise-message {
+                font-size: 0.9rem;
+                padding: 12px;
+                margin-top: 12px;
+            }
+
+            .floating-element {
+                font-size: 1.1rem;
+            }
+
+            .bouquet, .bouquet-left {
+                font-size: 3.5rem;
+            }
+
+            .intro-page {
+                min-height: unset;
+                padding: 20px 0;
+            }
+
+            .clickable-heart,
+            .clickable-flower {
+                transform: scale(0.8);
+            }
+
+            .games-container {
+                padding: 20px 15px;
+                max-height: 95vh;
+                width: 95%;
+            }
+
+            .game-title {
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+
+            .game-score {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+
+            .game-btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                margin-top: 10px !important;
+            }
         }
 
         @media (max-width: 400px) {
-            .intro-text { font-size: 1.7rem; }
-            h1 { font-size: 1rem; }
-            .card { padding: 6px 8px; }
-            .message { font-size: 0.72rem; }
-            button { font-size: 0.68rem; padding: 6px 5px; min-height: 30px; }
+            .intro-text {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .message {
+                font-size: 0.9rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 12px 18px;
+            }
+        }
+
+        /* Landscape mode support */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .intro-text {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .intro-subtext {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .next-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            .message {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+
+            .button-container {
+                gap: 8px;
+            }
+
+            button {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            .bouquet, .bouquet-left {
+                font-size: 3rem;
+            }
         }
 
         /* Accessibility */
@@ -1657,10 +1787,10 @@
 
     <!-- Page 3: Happy Valentines Day! -->
     <div class="page" id="page3">
-        <div class="intro-page">
+        <div class="intro-page" style="height:100vh;height:100dvh;justify-content:center;padding:0 20px;overflow:hidden;">
             <button class="back-btn" onclick="goToPage(2)">←</button>
-            <div class="intro-text" id="page3Greeting">Happy Valentines Day! 💖</div>
-            <button class="next-btn" onclick="goToPage(4)">Open Gift!</button>
+            <div class="intro-text" id="page3Greeting" style="font-size:clamp(1.6rem,7vw,4rem);margin-bottom:clamp(16px,5vh,30px);">Happy Valentines Day! 💖</div>
+            <button class="next-btn" onclick="goToPage(4)" style="font-size:clamp(0.95rem,3.5vw,1.3rem);padding:clamp(12px,3vh,20px) clamp(28px,8vw,50px);">Open Gift!</button>
         </div>
     </div>
 
@@ -1782,16 +1912,20 @@
 
     <!-- Share preview modal -->
     <div id="shareModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-         background:rgba(0,0,0,0.75);z-index:5000;justify-content:center;align-items:center;">
-        <div style="background:linear-gradient(135deg,#fff0f8,#ffe6f2);border-radius:24px;padding:24px;
-             max-width:340px;width:90%;text-align:center;border:3px solid #ff69b4;box-shadow:0 20px 60px rgba(255,105,180,0.5);">
-            <div style="font-family:'Pacifico',cursive;color:#ff1493;font-size:1.2rem;margin-bottom:12px;">Save your card! 💖</div>
-            <img id="sharePreviewImg" style="width:100%;border-radius:14px;border:2px solid #ffb6d9;margin-bottom:14px;" />
+         background:rgba(0,0,0,0.75);z-index:5000;justify-content:center;align-items:center;padding:16px;box-sizing:border-box;">
+        <div style="background:linear-gradient(135deg,#fff0f8,#ffe6f2);border-radius:24px;padding:20px;
+             max-width:340px;width:100%;text-align:center;border:3px solid #ff69b4;
+             box-shadow:0 20px 60px rgba(255,105,180,0.5);max-height:90dvh;overflow-y:auto;box-sizing:border-box;">
+            <div style="font-family:'Pacifico',cursive;color:#ff1493;font-size:1.2rem;margin-bottom:10px;">Save your card! 💖</div>
+            <img id="sharePreviewImg" style="width:100%;border-radius:14px;border:2px solid #ffb6d9;margin-bottom:10px;display:block;" />
+            <p style="font-size:0.75rem;color:#ff69b4;font-family:'Quicksand',sans-serif;font-weight:600;margin-bottom:12px;">
+                📱 iOS: Tap Share → tap the image → long-press → Save to Photos
+            </p>
             <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-                <button class="game-btn" id="downloadBtn">⬇️ Save as PNG</button>
-                <button class="game-btn" id="nativeShareBtn" style="display:none;">📤 Share</button>
+                <button class="game-btn" id="downloadBtn" style="min-height:44px;">⬇️ Save as PNG</button>
+                <button class="game-btn" id="nativeShareBtn" style="display:none;min-height:44px;">📤 Share</button>
                 <button class="game-btn" onclick="document.getElementById('shareModal').style.display='none'"
-                    style="background:linear-gradient(135deg,#ffb6d9,#ff8fc7);">✕ Close</button>
+                    style="background:linear-gradient(135deg,#ffb6d9,#ff8fc7);min-height:44px;">✕ Close</button>
             </div>
         </div>
     </div>
@@ -3061,11 +3195,11 @@
             btn.textContent = '⏳ Capturing...';
             btn.disabled = true;
 
-            // Hide UI chrome (keep .signature hidden too — we draw it manually)
+            // Hide chrome that shouldn't appear in screenshot (but NOT .signature)
             const hideSelectors = ['#musicToggleBtn', '.back-btn', '#shareBtn',
                 '.floating-element', '.falling-heart', '.falling-chocolate',
                 '.bg-sparkle', '.twinkle-star', '.shooting-star',
-                '.bouquet', '.bouquet-left', '.signature'];
+                '.bouquet', '.bouquet-left'];
             const hidden = [];
             hideSelectors.forEach(sel => document.querySelectorAll(sel).forEach(el => {
                 hidden.push({ el, v: el.style.visibility });
@@ -3075,77 +3209,102 @@
             try {
                 const card = document.getElementById('page4');
                 const raw = await html2canvas(card, {
-                    backgroundColor: null, scale: 2,
-                    useCORS: true, allowTaint: true, logging: false,
-                    ignoreElements: el => el.id === 'shareBtn'
+                    backgroundColor: null, scale: 2, useCORS: true, logging: false
                 });
 
-                // Build final canvas with gradient + signature
-                const pad = 36;
+                // Build final canvas with gradient background
                 const final = document.createElement('canvas');
+                const pad = 40;
                 final.width  = raw.width  + pad * 2;
-                final.height = raw.height + pad * 2 + 56;
+                final.height = raw.height + pad * 2 + 60; // extra space for signature
                 const ctx = final.getContext('2d');
 
+                // Pink gradient background
                 const grad = ctx.createLinearGradient(0, 0, final.width, final.height);
                 grad.addColorStop(0, '#ffeef8');
                 grad.addColorStop(0.5, '#ffe0f0');
                 grad.addColorStop(1, '#ffd4e5');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, final.width, final.height);
+
+                // Draw card content
                 ctx.drawImage(raw, pad, pad);
 
-                // Signature
-                ctx.font = 'italic bold 26px sans-serif';
+                // Draw signature at bottom right
+                ctx.font = 'italic 600 28px Quicksand, sans-serif';
                 ctx.fillStyle = '#ff69b4';
                 ctx.textAlign = 'right';
                 ctx.textBaseline = 'bottom';
-                ctx.shadowColor = 'rgba(255,255,255,0.9)';
-                ctx.shadowBlur = 8;
-                ctx.fillText('- Sila Mi More A Less 💖', final.width - pad, final.height - 14);
+                ctx.shadowColor = 'rgba(255,255,255,0.8)';
+                ctx.shadowBlur = 6;
+                ctx.fillText('- Sila Mi More A Less 💖', final.width - pad, final.height - 16);
                 ctx.shadowBlur = 0;
 
-                // ── Use dataURL directly — most reliable on mobile ──
                 const dataUrl = final.toDataURL('image/png');
                 document.getElementById('sharePreviewImg').src = dataUrl;
 
-                // Try native share (mobile share sheet)
-                const nativeBtn = document.getElementById('nativeShareBtn');
-                nativeBtn.style.display = 'none';
-                try {
-                    const res = await fetch(dataUrl);
-                    const blob = await res.blob();
+                final.toBlob(async (blob) => {
                     const file = new File([blob], 'valentines-card.png', { type: 'image/png' });
+                    const shareModal = document.getElementById('shareModal');
+                    const nativeBtn = document.getElementById('nativeShareBtn');
+
+                    // Mobile share (Web Share API — works on iOS Safari & Android Chrome)
                     if (navigator.canShare && navigator.canShare({ files: [file] })) {
                         nativeBtn.style.display = 'inline-flex';
                         nativeBtn.onclick = async () => {
-                            try { await navigator.share({ files: [file], title: "Happy Valentine's Day! 💖" }); }
-                            catch(e) { /* user cancelled, ignore */ }
+                            try {
+                                await navigator.share({ files: [file], title: "Happy Valentine's Day! 💖" });
+                            } catch(e) {
+                                if (e.name !== 'AbortError') mobileDownload(blob, dataUrl);
+                            }
                         };
+                    } else {
+                        // Fallback: show Share button that triggers download
+                        nativeBtn.style.display = 'inline-flex';
+                        nativeBtn.textContent = '📤 Share';
+                        nativeBtn.onclick = () => mobileDownload(blob, dataUrl);
                     }
-                } catch(_) {}
 
-                // Download button always works via dataURL
-                document.getElementById('downloadBtn').onclick = () => {
-                    const a = document.createElement('a');
-                    a.href = dataUrl;
-                    a.download = 'valentines-card.png';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                };
-
-                document.getElementById('shareModal').style.display = 'flex';
+                    document.getElementById('downloadBtn').onclick = () => mobileDownload(blob, dataUrl);
+                    shareModal.style.display = 'flex';
+                }, 'image/png');
 
             } catch(err) {
-                console.error('Share error:', err);
-                showPopup('Oops! Screenshot failed 😅');
+                console.error(err);
+                showPopup('Oops! Try again 😅');
             } finally {
                 hidden.forEach(({ el, v }) => el.style.visibility = v);
                 btn.textContent = '📸 Save / Share';
                 btn.disabled = false;
             }
         });
+
+        function mobileDownload(blob, dataUrl) {
+            // Try Blob URL first (works on Android Chrome & most browsers)
+            try {
+                const blobUrl = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = 'valentines-card.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(() => URL.revokeObjectURL(blobUrl), 3000);
+            } catch(e) {
+                // Final fallback: open image in new tab so user can long-press save on iOS
+                const w = window.open('', '_blank');
+                if (w) {
+                    w.document.write('<html><body style="margin:0;background:#000;display:flex;justify-content:center;align-items:center;min-height:100vh;">'
+                        + '<img src="' + dataUrl + '" style="max-width:100%;touch-action:pinch-zoom;" />'
+                        + '<p style="position:fixed;top:10px;left:0;right:0;text-align:center;color:white;font-family:sans-serif;font-size:14px;">Long-press the image → Save to Photos 💖</p>'
+                        + '</body></html>');
+                    w.document.close();
+                } else {
+                    // If popup blocked, replace page temporarily
+                    window.location.href = dataUrl;
+                }
+            }
+        }
 
     </script>
 </body>
