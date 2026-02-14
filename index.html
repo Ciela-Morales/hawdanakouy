@@ -201,9 +201,10 @@
         .message p  { margin-bottom: 1px; }
 
         .button-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 4px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
             margin: 0;
             width: 100%;
             max-width: 100%;
@@ -211,7 +212,10 @@
         }
 
         .button-container button {
-            width: 100%;
+            flex: 0 0 auto;
+            width: auto;
+            padding: 6px 10px;
+            font-size: clamp(0.6rem, 2.3vw, 0.75rem);
         }
 
         button {
