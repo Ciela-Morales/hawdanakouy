@@ -96,40 +96,34 @@
 
         .back-btn {
             position: fixed;
-            top: 14px;
-            left: 14px;
-            background: rgba(255,255,255,0.5) !important;
-            color: #ff69b4 !important;
-            border: none !important;
-            width: 36px !important;
-            height: 36px !important;
-            min-width: 36px !important;
-            min-height: 36px !important;
-            max-width: 36px !important;
-            max-height: 36px !important;
-            border-radius: 50% !important;
-            font-size: 1rem !important;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.5);
+            color: #ff69b4;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.3rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 15;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            padding: 0 !important;
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             backdrop-filter: blur(6px);
-            box-shadow: 0 2px 8px rgba(255,105,180,0.2);
-            opacity: 0.7;
+            box-shadow: 0 2px 10px rgba(255,105,180,0.2);
         }
 
         .back-btn:hover {
-            background: rgba(255,255,255,0.85) !important;
-            transform: translateX(-2px) !important;
-            opacity: 1;
+            background: rgba(255,255,255,0.8);
+            transform: translateX(-3px);
+            box-shadow: 0 4px 15px rgba(255,105,180,0.35);
         }
 
         .back-btn:active {
-            transform: translateX(-1px) !important;
+            transform: translateX(-1px);
         }
 
         @keyframes buttonPulse {
@@ -1411,12 +1405,16 @@
         #musicToggleBtn.playing {
             animation: musicPulse 1.5s ease-in-out infinite;
             background: rgba(255,105,180,0.25) !important;
-            opacity: 0.85 !important;
         }
 
         @keyframes musicPulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
+        }
+
+        @keyframes balloonRise {
+            from { bottom: -80px; }
+            to   { bottom: 110%; }
         }
 
         /* Mini Games Modal */
@@ -1724,14 +1722,12 @@
 
     <!-- Music Toggle Button -->
     <button id="musicToggleBtn" onclick="toggleMusic()" title="Tap to unmute"
-        style="position:fixed; top:14px; right:14px; z-index:15;
+        style="position:fixed; top:20px; right:20px; z-index:1000;
                background:rgba(255,255,255,0.5); backdrop-filter:blur(6px);
-               border:none; border-radius:50%; width:36px; height:36px;
-               min-width:36px; max-width:36px; min-height:36px; max-height:36px;
-               font-size:1rem; cursor:pointer; display:flex; align-items:center;
-               justify-content:center; padding:0;
-               box-shadow:0 2px 8px rgba(255,105,180,0.2);
-               transition:all 0.3s ease; opacity:0.7;">🔇</button>
+               border:none; border-radius:50%; width:42px; height:42px;
+               font-size:1.2rem; cursor:pointer; display:flex; align-items:center;
+               justify-content:center; box-shadow:0 2px 10px rgba(255,105,180,0.25);
+               transition:all 0.3s ease;">🔇</button>
 
     <div class="rainbow-overlay" id="rainbowOverlay"></div>
     
@@ -1844,6 +1840,8 @@
             <div id="gameMenu" class="game-menu">
                 <button class="game-btn" onclick="startCatchGame()">💖 Catch Hearts</button>
                 <button class="game-btn" onclick="startMemoryGame()">🎴 Memory Game</button>
+                <button class="game-btn" onclick="startBalloonGame()">🎈 Pop Balloons</button>
+                <button class="game-btn" onclick="startWheelGame()">🎡 Spin the Wheel</button>
             </div>
             
             <div id="catchGameContainer" style="display: none;">
@@ -1868,6 +1866,38 @@
                 <div class="game-score">Moves: <span id="memoryMoves">0</span> | Matches: <span id="memoryMatches">0</span></div>
                 <div class="memory-game" id="memoryGame"></div>
                 <button class="game-btn" onclick="backToMenu()" style="margin-top: 20px;">Back to Menu</button>
+            </div>
+
+            <!-- Balloon Pop Game -->
+            <div id="balloonGameContainer" style="display:none;">
+                <div class="game-score">Popped: <span id="balloonScore">0</span> | Time: <span id="balloonTimer">30</span>s</div>
+                <div id="balloonArea" style="position:relative; width:100%; height:clamp(220px,40vh,360px);
+                     background:linear-gradient(180deg,#ffe6f2,#ffd4e5); border-radius:20px;
+                     overflow:hidden; border:3px solid #ff69b4; touch-action:none; user-select:none;"></div>
+                <div id="balloonGameOver" style="display:none; text-align:center; padding:10px 0;">
+                    <div id="balloonOverEmoji" style="font-size:3rem; margin-bottom:8px;"></div>
+                    <div id="balloonOverMsg" style="font-family:'Quicksand',sans-serif; font-size:1.05rem; font-weight:700; color:#ff1493; margin-bottom:14px; line-height:1.5;"></div>
+                    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                        <button class="game-btn" onclick="startBalloonGame()" style="margin-top:0;">🔁 Try Again</button>
+                        <button class="game-btn" onclick="backToMenu()" style="margin-top:0; background:linear-gradient(135deg,#ffb6d9,#ff8fc7);">🏠 Menu</button>
+                    </div>
+                </div>
+                <button id="balloonBackBtn" class="game-btn" onclick="backToMenu()" style="margin-top:20px;">Back to Menu</button>
+            </div>
+
+            <!-- Spin the Wheel Game -->
+            <div id="wheelGameContainer" style="display:none; text-align:center;">
+                <div style="font-family:'Pacifico',cursive; color:#ff1493; font-size:1.3rem; margin-bottom:10px;">Spin for a compliment! 💖</div>
+                <div style="position:relative; display:inline-block; margin-bottom:12px;">
+                    <canvas id="wheelCanvas" width="260" height="260" style="border-radius:50%; display:block;"></canvas>
+                    <div id="wheelPointer" style="position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+                         font-size:1.6rem; line-height:1; pointer-events:none;">🔻</div>
+                </div>
+                <br>
+                <button class="game-btn" id="spinBtn" onclick="spinWheel()">🎡 Spin!</button>
+                <div id="wheelResult" style="margin-top:14px; font-family:'Quicksand',sans-serif; font-size:1.1rem;
+                     font-weight:700; color:#ff1493; min-height:40px; padding:0 10px; line-height:1.5;"></div>
+                <button class="game-btn" onclick="backToMenu()" style="margin-top:14px; background:linear-gradient(135deg,#ffb6d9,#ff8fc7);">🏠 Menu</button>
             </div>
         </div>
     </div>
@@ -2629,6 +2659,11 @@
             document.getElementById('gameMenu').style.display = 'flex';
             document.getElementById('catchGameContainer').style.display = 'none';
             document.getElementById('memoryGameContainer').style.display = 'none';
+            document.getElementById('balloonGameContainer').style.display = 'none';
+            document.getElementById('wheelGameContainer').style.display = 'none';
+            balloonActive = false;
+            clearInterval(balloonTimerInterval);
+            clearInterval(balloonSpawnInterval);
         }
 
         // Hearts Catch Game
@@ -2960,6 +2995,254 @@
             
             setTimeout(() => shimmer.remove(), 2000);
         }
+        // ── BALLOON POP GAME ─────────────────────────────────────
+        let balloonActive = false;
+        let balloonScore = 0;
+        let balloonTimeLeft = 30;
+        let balloonTimerInterval = null;
+        let balloonSpawnInterval = null;
+
+        const balloonColors = ['#ff69b4','#ff85c0','#ffb6d9','#ff1493','#ffa0d0','#ff6eb4','#ffadd2','#ff4da6'];
+        const balloonEmojis = ['🎈','🎀','💖','🌸','💕'];
+
+        function startBalloonGame() {
+            playSound();
+            balloonScore = 0;
+            balloonTimeLeft = 30;
+            balloonActive = true;
+            clearInterval(balloonTimerInterval);
+            clearInterval(balloonSpawnInterval);
+
+            document.getElementById('gameMenu').style.display = 'none';
+            document.getElementById('balloonGameContainer').style.display = 'block';
+            document.getElementById('balloonScore').textContent = 0;
+            document.getElementById('balloonTimer').textContent = 30;
+            document.getElementById('balloonGameOver').style.display = 'none';
+            document.getElementById('balloonBackBtn').style.display = 'block';
+
+            const area = document.getElementById('balloonArea');
+            area.innerHTML = '';
+            area.style.display = 'block';
+
+            // countdown
+            balloonTimerInterval = setInterval(() => {
+                balloonTimeLeft--;
+                document.getElementById('balloonTimer').textContent = balloonTimeLeft;
+                if (balloonTimeLeft <= 0) endBalloonGame();
+            }, 1000);
+
+            // spawn balloons
+            spawnBalloon();
+            balloonSpawnInterval = setInterval(spawnBalloon, 900);
+        }
+
+        function spawnBalloon() {
+            if (!balloonActive) return;
+            const area = document.getElementById('balloonArea');
+            const w = area.offsetWidth;
+            const balloon = document.createElement('div');
+            const color = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+            const size = 44 + Math.floor(Math.random() * 22);
+            const left = Math.random() * (w - size - 10) + 5;
+            const duration = 3.5 + Math.random() * 2.5;
+
+            balloon.style.cssText = `
+                position:absolute; bottom:-80px; left:${left}px;
+                width:${size}px; height:${size * 1.2}px;
+                background:radial-gradient(circle at 35% 30%, rgba(255,255,255,0.45), ${color});
+                border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+                cursor:pointer; user-select:none; touch-action:none;
+                animation: balloonRise ${duration}s linear forwards;
+                box-shadow: inset -4px -4px 8px rgba(0,0,0,0.12);
+                display:flex; align-items:center; justify-content:center;
+                font-size:${size * 0.4}px;
+            `;
+            balloon.textContent = balloonEmojis[Math.floor(Math.random() * balloonEmojis.length)];
+
+            // string
+            const string = document.createElement('div');
+            string.style.cssText = `
+                position:absolute; bottom:-${size * 0.35}px; left:50%;
+                transform:translateX(-50%);
+                width:2px; height:${size * 0.35}px;
+                background:rgba(255,105,180,0.5); pointer-events:none;
+            `;
+            balloon.appendChild(string);
+
+            function popBalloon(e) {
+                e.stopPropagation();
+                if (!balloonActive) return;
+                balloon.removeEventListener('click', popBalloon);
+                balloon.removeEventListener('touchstart', popBalloon);
+                balloonScore++;
+                document.getElementById('balloonScore').textContent = balloonScore;
+                playSound();
+                // pop animation
+                balloon.style.animation = 'none';
+                balloon.style.transition = 'transform 0.15s ease, opacity 0.2s ease';
+                balloon.style.transform = 'scale(1.5)';
+                balloon.style.opacity = '0';
+                createShimmer(balloon.getBoundingClientRect().left, balloon.getBoundingClientRect().top);
+                setTimeout(() => balloon.remove(), 200);
+            }
+
+            balloon.addEventListener('click', popBalloon);
+            balloon.addEventListener('touchstart', popBalloon, { passive: true });
+            area.appendChild(balloon);
+            setTimeout(() => { if (balloon.parentNode) balloon.remove(); }, duration * 1000 + 200);
+        }
+
+        function endBalloonGame() {
+            balloonActive = false;
+            clearInterval(balloonTimerInterval);
+            clearInterval(balloonSpawnInterval);
+            const area = document.getElementById('balloonArea');
+            area.style.display = 'none';
+            document.getElementById('balloonBackBtn').style.display = 'none';
+
+            const s = balloonScore;
+            let emoji, msg;
+            if (s >= 25)      { emoji = '🏆'; msg = `WOW ${s} balloons?! You're unstoppable! 🎉`; }
+            else if (s >= 15) { emoji = '🎈'; msg = `${s} balloons! Amazing reflexes! 💖`; }
+            else if (s >= 8)  { emoji = '😊'; msg = `${s} balloons! Nice work, keep practicing! ✨`; }
+            else               { emoji = '🥺'; msg = `${s} balloons… the balloons were too sneaky 😂 Try again!`; }
+
+            document.getElementById('balloonOverEmoji').textContent = emoji;
+            document.getElementById('balloonOverMsg').textContent = msg;
+            document.getElementById('balloonGameOver').style.display = 'block';
+            triggerFireworks();
+        }
+
+
+        // ── SPIN THE WHEEL ────────────────────────────────────────
+        const wheelCompliments = [
+            "You're literally the funniest person I know 😂💕",
+            "You make everyone around you feel special 🌟",
+            "Your smile can light up any room ✨",
+            "You're stronger than you think, always 💪💖",
+            "Honestly? A queen/king. No debate. 👑",
+            "Your kindness is your superpower 🦋",
+            "You deserve all the good things in life 🌸",
+            "You're the reason group chats are fun 📱💕",
+            "So talented it's actually unfair 🎨✨",
+            "God really said: let me make someone amazing 💅",
+            "You're giving main character energy 24/7 🎬",
+            "The world is genuinely better with you in it 💖",
+        ];
+        const wheelColors = [
+            '#ff69b4','#ff8fc7','#ffb6d9','#ff1493',
+            '#ffa0d0','#ff4da6','#ffadd2','#ff6eb4',
+            '#ffc0e0','#ff85a2','#ffd4e5','#ff3d9a'
+        ];
+        let wheelSpinning = false;
+        let wheelAngle = 0;
+
+        function startWheelGame() {
+            playSound();
+            document.getElementById('gameMenu').style.display = 'none';
+            document.getElementById('wheelGameContainer').style.display = 'block';
+            document.getElementById('wheelResult').textContent = '';
+            document.getElementById('spinBtn').disabled = false;
+            drawWheel(wheelAngle);
+        }
+
+        function drawWheel(rotation) {
+            const canvas = document.getElementById('wheelCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+            const r = cx - 6;
+            const slices = wheelCompliments.length;
+            const arc = (2 * Math.PI) / slices;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < slices; i++) {
+                const start = rotation + i * arc;
+                const end = start + arc;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, r, start, end);
+                ctx.closePath();
+                ctx.fillStyle = wheelColors[i % wheelColors.length];
+                ctx.fill();
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // label
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.rotate(start + arc / 2);
+                ctx.textAlign = 'right';
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 11px Quicksand, sans-serif';
+                ctx.shadowColor = 'rgba(0,0,0,0.3)';
+                ctx.shadowBlur = 3;
+                const label = (i + 1) + ' 💖';
+                ctx.fillText(label, r - 8, 4);
+                ctx.restore();
+            }
+
+            // center circle
+            ctx.beginPath();
+            ctx.arc(cx, cy, 18, 0, 2 * Math.PI);
+            ctx.fillStyle = '#ff1493';
+            ctx.fill();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 13px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('💖', cx, cy);
+        }
+
+        function spinWheel() {
+            if (wheelSpinning) return;
+            wheelSpinning = true;
+            playSound();
+            document.getElementById('spinBtn').disabled = true;
+            document.getElementById('wheelResult').textContent = '🎡 Spinning...';
+
+            const extraSpins = (5 + Math.floor(Math.random() * 5)) * 2 * Math.PI;
+            const randomStop = Math.random() * 2 * Math.PI;
+            const totalRotation = extraSpins + randomStop;
+            const duration = 3500 + Math.random() * 1000;
+            const start = performance.now();
+            const startAngle = wheelAngle;
+
+            function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+            function frame(now) {
+                const elapsed = now - start;
+                const t = Math.min(elapsed / duration, 1);
+                wheelAngle = startAngle + totalRotation * easeOut(t);
+                drawWheel(wheelAngle);
+                if (t < 1) {
+                    requestAnimationFrame(frame);
+                } else {
+                    wheelSpinning = false;
+                    document.getElementById('spinBtn').disabled = false;
+
+                    // find which slice is at the top (pointer at top = -PI/2)
+                    const slices = wheelCompliments.length;
+                    const arc = (2 * Math.PI) / slices;
+                    const normalized = (((-wheelAngle - Math.PI / 2) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+                    const index = Math.floor(normalized / arc) % slices;
+                    const result = wheelCompliments[index];
+
+                    document.getElementById('wheelResult').textContent = result;
+                    playSound();
+                    createConfetti();
+                }
+            }
+            requestAnimationFrame(frame);
+        }
+
+
     </script>
 </body>
 </html>
