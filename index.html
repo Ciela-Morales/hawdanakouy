@@ -171,59 +171,67 @@
         .card {
             background: transparent;
             border-radius: 0;
-            padding: 16px 16px;
+            padding: 8px 12px;
             max-width: 600px;
             width: 100%;
+            max-height: 100%;
             text-align: center;
             position: relative;
             z-index: 20;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            overflow-y: auto;
+            box-sizing: border-box;
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
             color: #ff69b4;
-            font-size: clamp(1.3rem, 4vw, 2rem);
-            margin-bottom: 10px;
+            font-size: clamp(1.1rem, 4vw, 1.7rem);
+            margin: 0;
             font-weight: 400;
             text-shadow: 0 3px 6px rgba(255, 255, 255, 0.9), 2px 2px 4px rgba(255, 105, 180, 0.3);
+            flex-shrink: 0;
         }
 
         .message {
             color: #333;
-            font-size: clamp(0.78rem, 2.2vw, 0.95rem);
-            line-height: 1.45;
-            margin-bottom: 10px;
+            font-size: clamp(0.72rem, 2.8vw, 0.88rem);
+            line-height: 1.35;
+            margin: 0;
             text-shadow: 0 2px 6px rgba(255, 255, 255, 0.95);
             font-weight: 600;
+            flex-shrink: 0;
         }
 
         .message br { display: none; }
-        .message p  { margin-bottom: 4px; }
+        .message p  { margin-bottom: 2px; }
 
         .button-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 7px;
-            margin-top: 10px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 5px;
+            margin: 0;
+            max-width: 100%;
+            flex-shrink: 0;
         }
 
         button {
             background: linear-gradient(135deg, #ff69b4, #ff1493);
             color: white;
             border: none;
-            padding: 9px 10px;
+            padding: 7px 8px;
             border-radius: 50px;
-            font-size: 0.78rem;
+            font-size: clamp(0.65rem, 2.5vw, 0.78rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
             white-space: nowrap;
-            min-height: 38px;
+            min-height: unset;
             min-width: unset;
+            line-height: 1.2;
         }
 
         button:hover {
@@ -240,14 +248,14 @@
         }
 
         .surprise-message {
-            margin-top: 10px;
-            padding: 12px;
+            margin: 0;
+            padding: 7px 10px;
             background: linear-gradient(135deg, #fff0f8, #ffe6f2);
-            border-radius: 16px;
+            border-radius: 12px;
             color: #ff1493;
-            font-size: 0.95rem;
+            font-size: clamp(0.72rem, 2.5vw, 0.85rem);
             font-weight: 600;
-            min-height: 44px;
+            min-height: unset;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -255,6 +263,7 @@
             transform: scale(0.9);
             transition: all 0.4s ease;
             border: 2px solid #ffb6d9;
+            flex-shrink: 0;
         }
 
         .surprise-message.show {
@@ -1814,16 +1823,11 @@
         <h1 id="page4Header">To My Favorite People 💖</h1>
         <div class="message">
             <p><strong id="page4Msg">Happy Valentine's Day! 💝</strong></p>
-            <br>
             <p>Just wanted to drop a little digital hug your way.</p>
-            <br>
-            <p>No flowers, no chocolates just a tiny fun thing to brighten your day. KAY WA MAN KOY LINGAW</p>
-            <br>
+            <p>No flowers, no chocolates — just a tiny fun thing to brighten your day. KAY WA MAN KOY LINGAW</p>
             <p>luoya pud nimo uy way ka detdet 😝</p>
-            <br>
             <p>spam spam click rana eheheh</p>
-            <br>
-            <p>And don't forget you're appreciated 💖 <em>kuyawa gud🤨</em> </p>
+            <p>And don't forget you're appreciated 💖 <em>kuyawa gud🤨</em></p>
         </div>
         
         <div class="button-container">
@@ -1837,7 +1841,7 @@
         </div>
         
         <div id="surpriseMessage" class="surprise-message"></div>
-        <button id="shareBtn" class="secondary-btn" style="margin-top:10px;width:100%;max-width:320px;">📸 Save / Share</button>
+        <button id="shareBtn" class="secondary-btn" style="width:100%;max-width:320px;flex-shrink:0;">📸 Save / Share</button>
     </div>
     </div>
 
