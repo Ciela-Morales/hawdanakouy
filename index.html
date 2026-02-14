@@ -38,11 +38,9 @@
         .intro-page {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding-top: 80px;
-            padding-bottom: 40px;
+            min-height: 400px;
             position: relative;
             z-index: 20;
         }
@@ -98,34 +96,40 @@
 
         .back-btn {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.5);
-            color: #ff69b4;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.3rem;
+            top: 14px;
+            left: 14px;
+            background: rgba(255,255,255,0.5) !important;
+            color: #ff69b4 !important;
+            border: none !important;
+            width: 36px !important;
+            height: 36px !important;
+            min-width: 36px !important;
+            min-height: 36px !important;
+            max-width: 36px !important;
+            max-height: 36px !important;
+            border-radius: 50% !important;
+            font-size: 1rem !important;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            z-index: 15;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0 !important;
             backdrop-filter: blur(6px);
-            box-shadow: 0 2px 10px rgba(255,105,180,0.2);
+            box-shadow: 0 2px 8px rgba(255,105,180,0.2);
+            opacity: 0.7;
         }
 
         .back-btn:hover {
-            background: rgba(255,255,255,0.8);
-            transform: translateX(-3px);
-            box-shadow: 0 4px 15px rgba(255,105,180,0.35);
+            background: rgba(255,255,255,0.85) !important;
+            transform: translateX(-2px) !important;
+            opacity: 1;
         }
 
         .back-btn:active {
-            transform: translateX(-1px);
+            transform: translateX(-1px) !important;
         }
 
         @keyframes buttonPulse {
@@ -145,20 +149,20 @@
         body {
             font-family: 'Quicksand', 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #ffd4e5 100%);
-            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            padding: 0 20px;
-            overflow-x: hidden;
-            overflow-y: auto;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
             position: relative;
         }
 
         .card {
             background: transparent;
             border-radius: 0;
-            padding: 70px 40px 50px 40px;
+            padding: 50px 40px;
             max-width: 600px;
             width: 100%;
             text-align: center;
@@ -364,8 +368,8 @@
         /* Responsive */
         @media (max-width: 600px) {
             body {
-                padding: 0 10px;
-                align-items: flex-start;
+                padding: 10px;
+                align-items: center;
             }
 
             .intro-text {
@@ -387,6 +391,10 @@
 
             h1 {
                 font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 20px 15px;
             }
 
             .message {
@@ -424,13 +432,8 @@
             }
 
             .intro-page {
-                min-height: 100vh;
-                padding: 80px 0 40px 0;
-                justify-content: flex-start;
-            }
-
-            .card {
-                padding: 80px 15px 40px 15px;
+                min-height: unset;
+                padding: 20px 0;
             }
 
             .clickable-heart,
@@ -1408,6 +1411,7 @@
         #musicToggleBtn.playing {
             animation: musicPulse 1.5s ease-in-out infinite;
             background: rgba(255,105,180,0.25) !important;
+            opacity: 0.85 !important;
         }
 
         @keyframes musicPulse {
@@ -1720,25 +1724,19 @@
 
     <!-- Music Toggle Button -->
     <button id="musicToggleBtn" onclick="toggleMusic()" title="Tap to unmute"
-        style="position:fixed; top:20px; right:20px; z-index:1000;
+        style="position:fixed; top:14px; right:14px; z-index:15;
                background:rgba(255,255,255,0.5); backdrop-filter:blur(6px);
-               border:none; border-radius:50%; width:42px; height:42px;
-               font-size:1.2rem; cursor:pointer; display:flex; align-items:center;
-               justify-content:center; box-shadow:0 2px 10px rgba(255,105,180,0.25);
-               transition:all 0.3s ease;">🔇</button>
-
-    <!-- Single Global Back Button -->
-    <button id="globalBackBtn" onclick="goBack()" style="display:none; position:fixed; top:20px; left:20px; z-index:1000;
-               background:rgba(255,255,255,0.5); backdrop-filter:blur(6px);
-               border:none; border-radius:50%; width:42px; height:42px;
-               font-size:1.3rem; color:#ff69b4; cursor:pointer; display:none; align-items:center;
-               justify-content:center; box-shadow:0 2px 10px rgba(255,105,180,0.25);
-               transition:all 0.3s ease;">←</button>
+               border:none; border-radius:50%; width:36px; height:36px;
+               min-width:36px; max-width:36px; min-height:36px; max-height:36px;
+               font-size:1rem; cursor:pointer; display:flex; align-items:center;
+               justify-content:center; padding:0;
+               box-shadow:0 2px 8px rgba(255,105,180,0.2);
+               transition:all 0.3s ease; opacity:0.7;">🔇</button>
 
     <div class="rainbow-overlay" id="rainbowOverlay"></div>
     
     <!-- Signature -->
-    <div class="signature">- khy handsome 💖</div>
+    <div class="signature">- Sila Mi More A Less💖</div>
     
     <!-- Flower bouquets -->
     <div class="bouquet">
@@ -1760,9 +1758,9 @@
     <!-- Page 1: Hi hehehe -->
     <div class="page active" id="page1">
         <div class="intro-page">
-            <div class="intro-text">Hi hehehe 👋</div>
+            <div class="intro-text">Hi ehehe 👋</div>
             <div style="margin-bottom: 28px; width: 100%; max-width: 320px;">
-                <div style="font-family:'Quicksand',sans-serif; font-size:1rem; color:#ff69b4; font-weight:700; margin-bottom:10px; text-shadow:0 2px 6px rgba(255,255,255,0.9);">✍️ What's your name?</div>
+                <div style="font-family:'Quicksand',sans-serif; font-size:1rem; color:#ff69b4; font-weight:700; margin-bottom:10px; text-shadow:0 2px 6px rgba(255,255,255,0.9);">✍️ UNSAY PANGALAN NIMO UY? 🤨</div>
                 <input id="visitorName" type="text" placeholder="Type your name here..." maxlength="24"
                     style="width:100%; padding:14px 20px; border-radius:50px; border:2.5px solid #ff69b4;
                     font-family:'Quicksand',sans-serif; font-size:1rem; font-weight:600; color:#ff1493;
@@ -1776,6 +1774,7 @@
     <!-- Page 2: Musta? -->
     <div class="page" id="page2">
         <div class="intro-page">
+            <button class="back-btn" onclick="goToPage(1)">←</button>
             <div class="intro-text" id="page2Greeting">Musta?</div>
             <div class="intro-subtext" id="page2Sub">How are you?</div>
             <button class="next-btn" onclick="goToPage(3)">Next</button>
@@ -1785,6 +1784,7 @@
     <!-- Page 3: Happy Valentines Day! -->
     <div class="page" id="page3">
         <div class="intro-page">
+            <button class="back-btn" onclick="goToPage(2)">←</button>
             <div class="intro-text" id="page3Greeting">Happy Valentines Day! 💖</div>
             <button class="next-btn" onclick="goToPage(4)">Open Gift!</button>
         </div>
@@ -1793,19 +1793,20 @@
     <!-- Page 4: Main Valentine's greeting -->
     <div class="page" id="page4">
         <div class="card">
+        <button class="back-btn" onclick="goToPage(3)">←</button>
         <h1 id="page4Header">To My Favorite People 💖</h1>
         <div class="message">
             <p><strong id="page4Msg">Happy Valentine's Day! 💝</strong></p>
             <br>
             <p>Just wanted to drop a little digital hug your way.</p>
             <br>
-            <p>No flowers, no chocolates just a tiny fun thing to brighten your day.</p>
+            <p>No flowers, no chocolates just a tiny fun thing to brighten your day. KAY WA MAN KOY LINGAW</p>
             <br>
-            <p>Cause you guys are like a sister to me, yieee 💕</p>
+            <p>luoya pud nimo uy way ka detdet 😝</p>
             <br>
-            <p>Have fun clicking heheheh</p>
+            <p>spam spam click rana eheheh</p>
             <br>
-            <p>And don't forget you're appreciated 💖</p>
+            <p>And don't forget you're appreciated 💖 <em>kuyawa gud🤨</em> </p>
         </div>
         
         <div class="button-container">
@@ -1948,30 +1949,21 @@
 
         // Page navigation
         function goToPage(pageNumber) {
+            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
+            
+            // Show the selected page
             document.getElementById('page' + pageNumber).classList.add('active');
-
-            // Show back button on pages 2, 3, 4 — hide on page 1
-            const backBtn = document.getElementById('globalBackBtn');
-            if (backBtn) {
-                if (pageNumber > 1) {
-                    backBtn.style.display = 'flex';
-                    backBtn.dataset.prevPage = pageNumber - 1;
-                } else {
-                    backBtn.style.display = 'none';
-                }
-            }
-
+            
+            // Play sound
             playSound();
-            if (pageNumber === 4) createPetalConfetti();
-        }
-
-        function goBack() {
-            const backBtn = document.getElementById('globalBackBtn');
-            const prev = parseInt(backBtn.dataset.prevPage);
-            if (prev) goToPage(prev);
+            
+            // Trigger petal confetti when opening final page
+            if (pageNumber === 4) {
+                createPetalConfetti();
+            }
         }
 
         // Sound effect (soft pop/chime)
@@ -2113,6 +2105,8 @@
             const n = visitorName ? visitorName : 'You';
             return [
                 `Hey ${n}! You're absolutely amazing 💖`,
+                "Ka hawd nako😩",
+                "Ako rani 😏",
                 `${n}, you light up every room you walk into ✨`,
                 `Sending a big digital hug to ${n}! 🤗`,
                 `${n} so awesome omg 😩`,
@@ -2121,9 +2115,6 @@
                 `Hey ${n}! You deserve snacks, naps, and happiness 🍫😎`,
                 `${n}, keep being legendary 😏`,
                 `Random reminder: ${n} is appreciated ❤️`,
-                "Khy so handsome omg 😩",
-                "Khy so Amazing 💖",
-                "Khy so Handsome 😏",
                 "You're awesome. Don't forget it! 💖",
                 "Thanks for being one of my favorite humans 😄",
                 "You make life way less boring ✨",
